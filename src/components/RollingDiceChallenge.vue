@@ -1,18 +1,116 @@
 <template>
-  <DiceFace6 />
+  <div class="container">
+    <DiceFace1
+      @click="rollDice"
+      :isShowing1="isShowing1"
+      @toggleDice="toggleDice"
+    />
+    <DiceFace2
+      @click="rollDice"
+      :isShowing2="isShowing2"
+      @toggleDice="toggleDice"
+    />
+    <DiceFace3
+      @click="rollDice"
+      :isShowing3="isShowing3"
+      @toggleDice="toggleDice"
+    />
+    <DiceFace4
+      @click="rollDice"
+      :isShowing4="isShowing4"
+      @toggleDice="toggleDice"
+    />
+    <DiceFace5
+      @click="rollDice"
+      :isShowing5="isShowing5"
+      @toggleDice="toggleDice"
+    />
+    <DiceFace6
+      @click="rollDice"
+      :isShowing6="isShowing6"
+      @toggleDice="toggleDice"
+    />
+  </div>
 </template>
 
 <script>
+import DiceFace1 from './DiceFace1.vue'
+import DiceFace2 from './DiceFace2.vue'
+import DiceFace3 from './DiceFace3.vue'
+import DiceFace4 from './DiceFace4.vue'
+import DiceFace5 from './DiceFace5.vue'
 import DiceFace6 from './DiceFace6.vue'
 
 export default {
   name: 'Challenge',
   components: {
+    DiceFace1,
+    DiceFace2,
+    DiceFace3,
+    DiceFace4,
+    DiceFace5,
     DiceFace6,
+  },
+  data() {
+    return {
+      min: 1,
+      max: 6,
+      currentDice: 1,
+      isShowing1: true,
+      isShowing2: false,
+      isShowing3: false,
+      isShowing4: false,
+      isShowing5: false,
+      isShowing6: false,
+    }
+  },
+  methods: {
+    rollDice() {
+      if (this.currentDice === 1) {
+        this.isShowing1 = !this.isShowing1
+      } else if (this.currentDice === 2) {
+        this.isShowing2 = !this.isShowing2
+      } else if (this.currentDice === 3) {
+        this.isShowing3 = !this.isShowing3
+      } else if (this.currentDice === 4) {
+        this.isShowing4 = !this.isShowing4
+      } else if (this.currentDice === 5) {
+        this.isShowing5 = !this.isShowing5
+      } else if (this.currentDice === 6) {
+        this.isShowing6 = !this.isShowing6
+      }
+      this.generateNumber()
+      if (this.currentDice === 1) {
+        this.isShowing1 = !this.isShowing1
+      } else if (this.currentDice === 2) {
+        this.isShowing2 = !this.isShowing2
+      } else if (this.currentDice === 3) {
+        this.isShowing3 = !this.isShowing3
+      } else if (this.currentDice === 4) {
+        this.isShowing4 = !this.isShowing4
+      } else if (this.currentDice === 5) {
+        this.isShowing5 = !this.isShowing5
+      } else if (this.currentDice === 6) {
+        this.isShowing6 = !this.isShowing6
+      }
+    },
+    generateNumber() {
+      this.currentDice = Math.floor(
+        Math.random() * (this.max - this.min + 1) + this.min
+      )
+      console.log(this.currentDice)
+    },
+    toggleDice(isShowing) {
+      return isShowing
+    },
   },
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.container {
+  position: relative;
+}
+</style>
 <!-- 
 /*
 DESCRIPTION:

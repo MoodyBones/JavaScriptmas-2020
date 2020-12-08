@@ -1,12 +1,22 @@
 <template>
-  <div class="dice face1">
-    <div class="dot"></div>
+  <div @click="toggleDice">
+    <div v-show="isShowing1" class="dice face1">
+      <div class="dot"></div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'DiceFace1',
+  props: {
+    isShowing1: Boolean,
+  },
+  methods: {
+    toggleDice() {
+      this.$emit('toggleDice', this.isShowing1)
+    },
+  },
 }
 </script>
 
@@ -17,3 +27,8 @@ export default {
   align-items: center;
 }
 </style>
+
+<!--
+TODO
+on click make it hide show
+ -->

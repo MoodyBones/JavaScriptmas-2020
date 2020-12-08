@@ -1,14 +1,24 @@
 <template>
-  <div class="dice face3">
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
+  <div @click="toggleDice">
+    <div v-show="isShowing3" class="dice face3">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'DiceFace3',
+  props: {
+    isShowing3: Boolean,
+  },
+  methods: {
+    toggleDice() {
+      this.$emit('toggleDice', this.isShowing3)
+    },
+  },
 }
 </script>
 

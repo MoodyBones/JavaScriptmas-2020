@@ -18,16 +18,19 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin-top: 60px;
+  /* margin-top: 60px; */
+  height: 100vh;
   display: flex;
-  background-color: #aeb8fe;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #aeb8fe; */
 }
 .dice {
+  /* position: absolute; */
   width: 90px;
   height: 90px;
   border-radius: 10px;
   background-color: #efe5dc;
-  margin: 100px;
   padding: 0.5rem;
 }
 
